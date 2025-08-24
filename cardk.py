@@ -5,7 +5,7 @@ import os
 
 # Load trained RandomForest model
 model_path = os.path.join(os.path.dirname(__file__), 'name.pkl')
-with open("name.pkl", "rb") as file:
+with open(model_path, "rb") as file:
     model = pickle.load(file)
 
 st.title("Car Price Prediction App 🚗")
@@ -56,5 +56,6 @@ if st.button("Predict"):
     else:
         prediction = model.predict(features)
         st.success(f" Predicted Selling Price: {prediction[0]:.2f} lakhs")
+
 
 
