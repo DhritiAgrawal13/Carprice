@@ -1,8 +1,10 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
 
 # Load trained RandomForest model
+model_path = os.path.join(os.path.dirname(__file__), 'model.pkl')
 with open("name.pkl", "rb") as file:
     model = pickle.load(file)
 
@@ -54,3 +56,4 @@ if st.button("Predict"):
     else:
         prediction = model.predict(features)
         st.success(f" Predicted Selling Price: {prediction[0]:.2f} lakhs")
+
